@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<h1>Hello Golu and Piku!</h1>
+<br/>
+
+{% if api %}
+    {% if api == "Error" %}
+          There was an error, please try again
+
+    {% else %}
+ 
+          Area: {{ api.0.ReportingArea }}<br/>
+          Air Quality (Ozone): {{ api.0.AQI }}<br/>
+          Category: {{ api.0.Category.Name }}<br/><br/><br/><br/>
+          
+          Air Quality (PM): {{ api.1.AQI }}<br/>
+          Category: {{ api.0.Category.Name }}
+
+          {% if api.0.Category.Name == "Good" %}
+                <p>Good. The AQI value for your community is between
+                   0 and 50. Air quality is satisfactory and poses little or no
+                   health risk.</p>
+          {% elif api.0.Category.Name == "Moderate" %}
+                <p>Moderate.The AQI is between 51 and 100. Air quality
+                    is acceptable; however, pollution in this range may pose a
+                    moderate health concern for a very small number of individuals</p>
+          {% elif api.0.Category.Name == "Unhealthy for Sensitive Groups" %}
+                <p>Unhealthy for Sensitive Groups.Members of sensitive groups
+                   may experience health effects, but the general public is
+                   unlikely to be affected</p>
+          {% elif api.0.Category.Name == "Unhealthy" %}
+                <p>Unhealthy.Everyone may begin to experience health effects
+                   when AQI values are between 151 and 200. Members of
+                   sensitive groups may experience more serious health effects</p>
+          {% endif %}
+
+
+
+    {% endif %}
+
+{% endif %}
+
+{% endblock %}
