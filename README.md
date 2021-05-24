@@ -11,11 +11,15 @@ You need to sign up and the email confirmation contains the API key to be used t
 
 
 sudo apt-get update
-sudo apt install python3
-sudo apt-get install python3-pip
-pip3 install virtualenv
-sudo apt-get install python3-venv
 
+sudo apt install python3
+
+sudo apt-get install python3-pip
+
+pip3 install virtualenv
+
+sudo apt-get install python3-venv
+-------------------------------------------------------
 4. Create a virtual environment
 python3 -m venv venv
 --------------------------------------------------------
